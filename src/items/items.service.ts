@@ -36,6 +36,6 @@ export class ItemsService {
 
   async delete(id: string): Promise<void> {
     const item = await this.findById(id);
-    await this.itemRepository.delete(item);
+    await this.itemRepository.delete({ id });
   }
 }
