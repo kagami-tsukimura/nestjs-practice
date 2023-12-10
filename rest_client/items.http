@@ -2,7 +2,7 @@
 GET http://localhost:3000/items
 
 ### GET findById
-GET http://localhost:3000/items/a89d3a0a-4f63-410a-87e9-26ab0d0c7b0a
+GET http://localhost:3000/items/70491289-62d5-46eb-9cf0-73e2d36f4a85
 
 ### POST create(1)
 POST http://localhost:3000/items
