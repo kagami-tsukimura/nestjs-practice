@@ -9,7 +9,6 @@ POST http://localhost:3000/items
 Content-Type: application/json
 
 {
-  "id": "1",
   "name": "My Awesome Item1",
   "price": 10.00,
   "description": "1 on the market!"
