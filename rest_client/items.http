@@ -1,0 +1,20 @@
+GET http://localhost:3000/items
+
+###
+GET http://localhost:3000/items
+Content-Type: application/json
+
+{
+  "id": "2",
+}
+
+###
+POST http://localhost:3000/items
+Content-Type: application/json
+
+{
+  "id": "2",
+  "name": "My Awesome Item2",
+  "price": 210.00,
+  "description": "2The best item on the market!"
+}
