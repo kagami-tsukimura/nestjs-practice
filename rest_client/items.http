@@ -1,0 +1,33 @@
+### GET findAll
+GET http://localhost:3000/items
+
+### GET findById
+GET http://localhost:3000/items/2
+
+### POST create(1)
+POST http://localhost:3000/items
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "My Awesome Item1",
+  "price": 10.00,
+  "description": "1 on the market!"
+}
+
+### POST create(2)
+POST http://localhost:3000/items
+Content-Type: application/json
+
+{
+  "id": "2",
+  "name": "My Awesome Item2",
+  "price": 20.00,
+  "description": "2 on the market!"
+}
+
+### PATCH updateStatus
+PATCH http://localhost:3000/items/2
+
+### DELETE delete
+DELETE http://localhost:3000/items/1
