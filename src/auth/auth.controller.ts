@@ -1,4 +1,11 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Post,
+} from '@nestjs/common';
 import { User } from 'src/entities/user.entity';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -10,6 +17,11 @@ export class AuthController {
   @Get()
   async findAll(): Promise<User[]> {
     return await this.authService.findAll();
+  }
+
+  @Get(':id')
+  async findById(@Param('id', ParseUUIDPipe) id: string): Promise<User> {
+    return await this.authService.findById(id);
   }
 
   @Post('signup')
