@@ -31,26 +31,3 @@ PATCH http://localhost:3000/items/71901791-9855-4278-a9d7-31e3e8aab50b
 
 ### DELETE Item Delete
 DELETE http://localhost:3000/items/71901791-9855-4278-a9d7-31e3e8aab50b
-
-# User
-### GET User All
-GET http://localhost:3000/auth
-
-### GET User ById
-GET http://localhost:3000/auth/a0bda79b-0ea0-4ea6-9d7e-147b54304a2c
-
-### POST User
-POST http://localhost:3000/auth/signup
-Content-Type: application/json
-
-{
-  "username": "Kagami",
-  "password": "password",
-  "status": "FREE"
-}
-
-### PATCH User UpdateStatus
-PATCH http://localhost:3000/auth/a0bda79b-0ea0-4ea6-9d7e-147b54304a2c
-
-### DELETE User Delete
-DELETE http://localhost:3000/auth/a0bda79b-0ea0-4ea6-9d7e-147b54304a2c
