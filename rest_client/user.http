@@ -1,0 +1,32 @@
+# User
+### GET User All
+GET http://localhost:3000/auth
+
+### GET User ById
+GET http://localhost:3000/auth/17465170-5d04-4278-bb13-6ab7f568b5e4
+
+### POST User Create(1)
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "username": "Kagami",
+  "password": "password",
+  "status": "FREE"
+}
+
+### POST User Create(2)
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "username": "Tsukimura",
+  "password": "password",
+  "status": "FREE"
+}
+
+### PATCH User UpdateStatus
+PATCH http://localhost:3000/auth/17465170-5d04-4278-bb13-6ab7f568b5e4
+
+### DELETE User Delete
+DELETE http://localhost:3000/auth/981830b3-43a4-4a87-ac1d-cb0fa0287d76
