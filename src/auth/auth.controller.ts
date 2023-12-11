@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseUUIDPipe,
@@ -33,5 +34,10 @@ export class AuthController {
   @Patch(':id')
   async updateStatus(@Param('id', ParseUUIDPipe) id: string): Promise<User> {
     return await this.authService.updateStatus(id);
+  }
+
+  @Delete(':id')
+  async delete(@Param('id', ParseUUIDPipe) id: string): Promise<void> {
+    this.authService.delete(id);
   }
 }

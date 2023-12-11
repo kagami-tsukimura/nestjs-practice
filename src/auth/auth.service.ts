@@ -31,4 +31,8 @@ export class AuthService {
     await this.userRepository.save(user);
     return user;
   }
+
+  async delete(id: string): Promise<void> {
+    await this.userRepository.delete(id);
+  }
 }
