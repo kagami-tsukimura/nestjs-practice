@@ -4,6 +4,7 @@ import {
   Get,
   Param,
   ParseUUIDPipe,
+  Patch,
   Post,
 } from '@nestjs/common';
 import { User } from 'src/entities/user.entity';
@@ -27,5 +28,10 @@ export class AuthController {
   @Post('signup')
   async signup(@Body() createUserDto: CreateUserDto): Promise<User> {
     return await this.authService.signUp(createUserDto);
+  }
+
+  @Patch(':id')
+  async updateStatus(@Param('id', ParseUUIDPipe) id: string): Promise<User> {
+    return await this.authService.updateStatus(id);
   }
 }

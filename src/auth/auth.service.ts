@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { User } from 'src/entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
+import { UserStatus } from './user-status.enum';
 import { UserRepositry } from './user.repository';
 
 @Injectable()
@@ -22,5 +23,12 @@ export class AuthService {
 
   async signUp(createUserDto: CreateUserDto): Promise<User> {
     return await this.userRepository.createUser(createUserDto);
+  }
+
+  async updateStatus(id: string): Promise<User> {
+    const user = await this.findById(id);
+    user.status = UserStatus.PREMIUM;
+    await this.userRepository.save(user);
+    return user;
   }
 }

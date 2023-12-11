@@ -48,3 +48,6 @@ Content-Type: application/json
   "password": "password",
   "status": "FREE"
 }
+
+### PATCH User UpdateStatus
+PATCH http://localhost:3000/auth/a0bda79b-0ea0-4ea6-9d7e-147b54304a2c
