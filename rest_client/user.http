@@ -10,7 +10,7 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "username": "Kagami",
+  "username": "Kagami-Hash",
   "password": "password",
   "status": "FREE"
 }
@@ -20,7 +20,7 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "username": "Tsukimura",
+  "username": "Tsukimura-Hash",
   "password": "password",
   "status": "FREE"
 }
