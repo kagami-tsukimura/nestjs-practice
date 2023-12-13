@@ -1,12 +1,22 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
+import * as bcrypt from 'bcrypt';
 import { User } from 'src/entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
+import { CredentialsDto } from './dto/credentials.dto';
 import { UserStatus } from './user-status.enum';
 import { UserRepositry } from './user.repository';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly userRepository: UserRepositry) {}
+  constructor(
+    private readonly userRepository: UserRepositry,
+    private jwtService: JwtService,
+  ) {}
 
   async findAll(): Promise<User[]> {
     return await this.userRepository.find();
@@ -34,5 +44,21 @@ export class AuthService {
 
   async delete(id: string): Promise<void> {
     await this.userRepository.delete(id);
+  }
+
+  async signIn(
+    credentialsDto: CredentialsDto,
+  ): Promise<{ accessToken: string }> {
+    const { username, password } = credentialsDto;
+    const user = await this.userRepository.findOne({ username });
+
+    if (user && (await bcrypt.compare(password, user.password))) {
+      const payload = { id: user.id, username: user.username };
+      const accessToken = await this.jwtService.sign(payload);
+      return { accessToken };
+    }
+    throw new UnauthorizedException(
+      '認証に失敗しました。ユーザー名またはパスワードを確認してください。',
+    );
   }
 }
