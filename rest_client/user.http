@@ -20,8 +20,8 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "username": "Tsukimura-Hash",
-  "password": "password",
+  "username": "Tsuki",
+  "password": "yourSecretKey8812388",
   "status": "FREE"
 }
 
