@@ -8,9 +8,10 @@ GET http://localhost:3000/items/71901791-9855-4278-a9d7-31e3e8aab50b
 ### POST Item Create(1)
 POST http://localhost:3000/items
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRmMzI1Y2MxLTY3NGItNDYwNC04NmEzLTUwMDZjNzI4MTM1MiIsInVzZXJuYW1lIjoiZ2FtaS1UIiwiaWF0IjoxNzAyNTU5NjQxLCJleHAiOjE3MDI1NjMyNDF9._pGu6WkGp_1Ham-FGMmjc4rnxVgKkrlcb9ebsQODH_0
 
 {
-  "name": "My Awesome Item1",
+  "name": "phone",
   "price": 10.00,
   "description": "1 on the market!"
 }

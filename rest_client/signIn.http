@@ -4,6 +4,6 @@ POST http://localhost:3000/auth/signIn
 Content-Type: application/json
 
 {
-  "username": "gami-T",
-  "password": "Key81238"
+  "username": "Tsuki",
+  "password": "yourSecretKey8812388"
 }
