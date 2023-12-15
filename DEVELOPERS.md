@@ -26,7 +26,7 @@ flea-market>Databases>postgres>Schemas>public>Tables
    - 追加の場合は以下。
 
    ```bash:
-   npx typeorm migration:generate -n AddRelation
+   npx typeorm migration:generate -n <AddRelation>
    ```
 
 3. migration の実行。
