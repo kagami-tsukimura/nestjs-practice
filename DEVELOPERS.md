@@ -1,8 +1,7 @@
 # 起動方法
 
 ```bash:
-docker-compose up -d
-npm run start:dev
+docker-compose up -d; npm run start:dev
 ```
 
 <http://localhost:81/>に接続。
