@@ -10,6 +10,7 @@ const mockItemRepository = () => ({
   findOne: jest.fn(),
   createItem: jest.fn(),
   save: jest.fn(),
+  delete: jest.fn(),
 });
 
 const mockUser1 = {
@@ -131,6 +132,32 @@ describe('ItemsServiceTest', () => {
       await expect(
         itemsService.updateStatus('test-id', mockUser1),
       ).rejects.toThrow(BadRequestException);
+    });
+  });
+
+  describe('delete', () => {
+    const mockItem = {
+      id: 'test-id',
+      name: 'PC',
+      price: 50000,
+      description: '',
+      status: ItemStatus.ON_SALE,
+      createdAt: '',
+      updatedAt: '',
+      userId: mockUser1.id,
+      user: mockUser1,
+    };
+    it('正常系-Delete', async () => {
+      itemRepository.findOne.mockResolvedValue(mockItem);
+      await itemsService.delete('test-id', mockUser1);
+      expect(itemRepository.delete).toHaveBeenCalled();
+    });
+
+    it('異常系-Delete: 他人の商品を削除', async () => {
+      itemRepository.findOne.mockResolvedValue(mockItem);
+      await expect(itemsService.delete('test-id', mockUser2)).rejects.toThrow(
+        BadRequestException,
+      );
     });
   });
 });
