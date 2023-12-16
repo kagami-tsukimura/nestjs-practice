@@ -1,10 +1,27 @@
 import { Test } from '@nestjs/testing';
+import { UserStatus } from '../auth/user-status.enum';
+import { ItemStatus } from './item-status.enum';
 import { ItemRepository } from './item.repository';
 import { ItemsService } from './items.service';
 
 const mockItemRepository = () => ({
   find: jest.fn(),
+  findOne: jest.fn(),
 });
+
+const mockUser1 = {
+  id: '1',
+  username: 'test1',
+  password: '1234',
+  status: UserStatus.PREMIUM,
+};
+
+const mockUser2 = {
+  id: '2',
+  username: 'test2',
+  password: '1234',
+  status: UserStatus.FREE,
+};
 
 describe('ItemsServiceTest', () => {
   let itemsService;
@@ -25,10 +42,30 @@ describe('ItemsServiceTest', () => {
   });
 
   describe('findAll', () => {
-    it('正常系', async () => {
+    it('正常系-Get-All', async () => {
       const expected = [];
       itemRepository.find.mockResolvedValue(expected);
       const result = await itemsService.findAll();
+
+      expect(result).toEqual(expected);
+    });
+  });
+
+  describe('findById', () => {
+    it('正常系-Get-ById', async () => {
+      const expected = {
+        id: 'test-id',
+        name: 'PC',
+        price: 50000,
+        description: '',
+        status: ItemStatus.ON_SALE,
+        createdAt: '',
+        updatedAt: '',
+        userId: mockUser1.id,
+        user: mockUser1,
+      };
+      itemRepository.findOne.mockResolvedValue(expected);
+      const result = await itemsService.findById('test-id');
 
       expect(result).toEqual(expected);
     });
