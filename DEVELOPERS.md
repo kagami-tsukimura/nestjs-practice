@@ -36,3 +36,11 @@ flea-market>Databases>postgres>Schemas>public>Tables
    ```
 
 4. pgAdmin でテーブルの確認。
+
+## Test
+
+Jest を使用。
+
+```bash:
+npm run test:watch
+```
